@@ -131,7 +131,7 @@ X_train_regular, X_train_noisy ,y_train = augment(images=X_train,
                                                   noise_range=40, 
                                                   rotation=35, 
                                                   shift=0.3)
-np.savez("train_double_digits.npz", X_train_regular, X_train_noisy, y_train)
+np.savez("../train_double_digits.npz", X_train_regular, X_train_noisy, y_train)
 print("Train saved!")
 print("Train shape",X_train_regular.shape)
 
@@ -141,10 +141,10 @@ X_valid_regular, X_valid_noisy ,y_valid = augment(images=X_validation,
                                                   noise_range=30, 
                                                   rotation=25, 
                                                   shift=0.2)
-np.savez("validation_double_digits.npz", X_valid_regular, X_valid_noisy, y_valid)
+np.savez("../validation_double_digits.npz", X_valid_regular, X_valid_noisy, y_valid)
 print("Validation saved!")
 print("Validation shape",X_valid_regular.shape)
 
-np.savez("test_single_digits.npz", X_test, y_test)
+np.savez("../test_single_digits.npz", X_test, y_test)
 print("Test saved!")
 print("Test shape",X_test.shape)
