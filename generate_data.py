@@ -112,16 +112,10 @@ y_train = idx2numpy.convert_from_file(path + train_files[1])
 X_test = idx2numpy.convert_from_file(path + test_files[0])
 y_test = idx2numpy.convert_from_file(path + test_files[1])
 
-print("Train shape",X_train.shape)
-print("Test  shape", X_test.shape)
-
 """### Split train-validation"""
 
 # split test in validation + test
 X_train, X_validation, y_train, y_validation = train_test_split(X_train, y_train, test_size=0.1, random_state=seed)
-
-print("Train shape",X_train.shape)
-print("Valid shape",X_validation.shape)
 
 """### Generate Data"""
 
@@ -132,7 +126,7 @@ X_train_regular, X_train_noisy ,y_train = augment(images=X_train,
                                                   rotation=35, 
                                                   shift=0.3)
 np.savez("../train_double_digits.npz", X_train_regular, X_train_noisy, y_train)
-print("Train saved!")
+print("\nTrain saved!")
 print("Train shape",X_train_regular.shape)
 
 X_valid_regular, X_valid_noisy ,y_valid = augment(images=X_validation, 
@@ -142,9 +136,9 @@ X_valid_regular, X_valid_noisy ,y_valid = augment(images=X_validation,
                                                   rotation=25, 
                                                   shift=0.2)
 np.savez("../validation_double_digits.npz", X_valid_regular, X_valid_noisy, y_valid)
-print("Validation saved!")
+print("\nValidation saved!")
 print("Validation shape",X_valid_regular.shape)
 
 np.savez("../test_single_digits.npz", X_test, y_test)
-print("Test saved!")
+print("\nTest saved!")
 print("Test shape",X_test.shape)
