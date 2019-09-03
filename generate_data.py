@@ -129,7 +129,7 @@ X_train_regular, X_train_noisy ,y_train = augment(images=X_train,
 np.savez("../train_double_digits.npz", X_train_regular, X_train_noisy, y_train)
 print("\nTrain saved!")
 print("Train shape",X_train_regular.shape)
-del X_train, y_train, X_train_regular, X_train_noisy, y_train
+del X_train, y_train, X_train_regular, X_train_noisy
 gc.collect()
 
 print("Augment validation data...")
