@@ -25,6 +25,7 @@ import idx2numpy
 from keras.utils import np_utils
 from sklearn.model_selection import train_test_split
 import random
+import gc
 
 K.set_image_data_format('channels_first')
 
@@ -128,6 +129,8 @@ X_train_regular, X_train_noisy ,y_train = augment(images=X_train,
 np.savez("../train_double_digits.npz", X_train_regular, X_train_noisy, y_train)
 print("\nTrain saved!")
 print("Train shape",X_train_regular.shape)
+del X_train, y_train, X_train_regular, X_train_noisy, y_train
+gc.collect()
 
 X_valid_regular, X_valid_noisy ,y_valid = augment(images=X_validation, 
                                                   labels=y_validation, 
@@ -138,7 +141,11 @@ X_valid_regular, X_valid_noisy ,y_valid = augment(images=X_validation,
 np.savez("../validation_double_digits.npz", X_valid_regular, X_valid_noisy, y_valid)
 print("\nValidation saved!")
 print("Validation shape",X_valid_regular.shape)
+del X_validation, y_validation, X_valid_regular, X_valid_noisy, y_valid
+gc.collect()
 
 np.savez("../test_single_digits.npz", X_test, y_test)
 print("\nTest saved!")
 print("Test shape",X_test.shape)
+del X_test, y_test
+gc.collect()
