@@ -119,7 +119,7 @@ y_test = idx2numpy.convert_from_file(path + test_files[1])
 X_train, X_validation, y_train, y_validation = train_test_split(X_train, y_train, test_size=0.1, random_state=seed)
 
 """### Generate Data"""
-
+print("Augment training data...")
 X_train_regular, X_train_noisy ,y_train = augment(images=X_train, 
                                                   labels=y_train, 
                                                   size=100000, 
@@ -132,6 +132,7 @@ print("Train shape",X_train_regular.shape)
 del X_train, y_train, X_train_regular, X_train_noisy, y_train
 gc.collect()
 
+print("Augment validation data...")
 X_valid_regular, X_valid_noisy ,y_valid = augment(images=X_validation, 
                                                   labels=y_validation, 
                                                   size=5000, 
