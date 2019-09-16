@@ -10,7 +10,6 @@ Original file is located at
 """### Imports"""
 
 import numpy as np
-from IPython.display import Image
 import matplotlib.pyplot as plt
 import random
 from sklearn.model_selection import train_test_split
